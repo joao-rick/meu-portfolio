@@ -1,38 +1,174 @@
-.App {
-  text-align: center;
+:root {
+  --black-color: #222222;
+  --primary-color: #1C1678;
+  --grey-color: #f4f4f4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--grey-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: var(--black-color);
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.App-header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.navbar {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 0 1rem;
+  background-color: var(--black-color);
 }
 
-.App-link {
-  color: #61dafb;
+.menu-icon {
+  display: none;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu-icon svg {
+  font-size: 1.5rem;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar ul li {
+  margin-right: 1rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  color: #bbb;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.project {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+}
+
+.project h2 {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.project .project-link {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    z-index: 1000;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu-icon svg {
+    font-size: 1.5rem;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    position: fixed;
+    top: 4rem; /* Ajuste a distância do topo conforme necessário */
+    left: 0;
+    right: 0;
+    background-color: var(--black-color);
+    padding: 1rem;
+    display: none;
+    z-index: 999; /* Garanta que o menu esteja acima do conteúdo */
+  }
+
+  .navbar ul.show {
+    display: flex;
+  }
+
+  .navbar ul li {
+    margin: 1rem 0;
+  }
+
+  .navbar ul li a {
+    font-size: 1.2rem;
+    color: #fff; /* Garanta que a cor do texto seja definida */
+    text-decoration: none; /* Remova sublinhado */
+    transition: color 0.3s ease;
+  }
+
+  .navbar ul li a:hover {
+    color: #bbb;
+  }
+
+  .container {
+    padding: 0 1rem; /* Ajuste o padding conforme necessário */
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project {
+    width: 100%;
+  }
+
+  .project iframe {
+    height: 250px; /* Ajuste a altura do iframe conforme necessário */
+  }
+
+  .project h2 {
+    text-align: center;
+    margin: 1rem 0;
+  }
+
+  .project .project-link {
+    text-align: center;
+    margin-top: 0.5rem;
   }
 }
